@@ -13,6 +13,7 @@ namespace TennisApplication
     public partial class playerListScreen : UserControl
     {
         int toggle = 1;
+        List<int> playerIndexes = new List<int>();
         public playerListScreen()
         {
             InitializeComponent();
@@ -49,7 +50,7 @@ namespace TennisApplication
 
                 updateList(",,,,,,");
             }
-            else if (addSaveButton.Text == "Add Filter")
+            else if (addSaveButton.Text == "Search")
             {
                 if (ageBox.Text == "Year/Month/Day")
                 {
@@ -63,7 +64,7 @@ namespace TennisApplication
                 {
                     ratingBox.Text = "";
                 }
-                updateList($"{firstNameTestBox.Text},{lastNameTextBox.Text},{ageBox.Text},{genderBox.Text},{ratingBox.Text},");
+                updateList($"{firstNameTestBox.Text},{lastNameTextBox.Text},{ageBox.Text},{genderBox.Text},{winsBox.Text},{ratingBox.Text},");
             }
 
         }
@@ -83,7 +84,7 @@ namespace TennisApplication
             }
 
             List<string> filterMode = new List<string>();
-            List<int> playerIndexes = new List<int>();
+            playerIndexes.Clear();
             foreach (Player player in Form1.playerList)
             {
                 playerIndexes.Add(Form1.playerList.IndexOf(player));
@@ -137,17 +138,6 @@ namespace TennisApplication
                     }
                     if (i == 3)
                     {
-                        if (data == "" || data == player.age)
-                        {
-
-                        }
-                        else if (data != player.age)
-                        {
-                            playerIndexes.Remove(Form1.playerList.IndexOf(player));
-                        }
-                    }
-                    if (i == 4)
-                    {
                         if (data == "" || data == player.gender)
                         {
 
@@ -157,7 +147,7 @@ namespace TennisApplication
                             playerIndexes.Remove(Form1.playerList.IndexOf(player));
                         }
                     }
-                    if (i == 5)
+                    if (i == 4)
                     {
                         if (data == "" || data == player.wins.ToString())
                         {
@@ -168,7 +158,7 @@ namespace TennisApplication
                             playerIndexes.Remove(Form1.playerList.IndexOf(player));
                         }
                     }
-                    if (i == 6)
+                    if (i == 5)
                     {
                         if (data == "" || data == player.rating.ToString())
                         {
@@ -195,7 +185,7 @@ namespace TennisApplication
         #region toggleOpen
         private void filterButton_Click(object sender, EventArgs e)
         {
-            toggleMenu("filter", true);
+            toggleMenu("search", true);
         }
 
         private void addPlayerButton_Click(object sender, EventArgs e)
@@ -217,11 +207,11 @@ namespace TennisApplication
                     warningLabel.Text = $"Please enter player information into the boxes below";
                 }
 
-                if (mode == "filter")
+                if (mode == "search")
                 {
-                    titleLabel.Text = "Search Filter";
-                    addSaveButton.Text = "Add Filter";
-                    warningLabel.Text = $"Please enter filter information into the boxes below";
+                    titleLabel.Text = "Search";
+                    addSaveButton.Text = "Search";
+                    warningLabel.Text = $"Please enter filter information into the boxes below, you may leave fields blank";
                 }
 
             }
@@ -336,5 +326,10 @@ namespace TennisApplication
 
 
         #endregion
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            warningLabel.Text = $"{listBox1.SelectedItem.ToString()}"; 
+        }
     }
 }

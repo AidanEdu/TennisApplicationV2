@@ -31,10 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.backButton = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.filterButton = new System.Windows.Forms.Button();
+            this.searchButton = new System.Windows.Forms.Button();
             this.addPlayerButton = new System.Windows.Forms.Button();
-            this.seachButton = new System.Windows.Forms.Button();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.backPanel = new System.Windows.Forms.Panel();
             this.closeButton = new System.Windows.Forms.Button();
@@ -46,12 +44,14 @@
             this.ageBox = new System.Windows.Forms.TextBox();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.firstNameTestBox = new System.Windows.Forms.TextBox();
-            this.ratingLabel = new System.Windows.Forms.Label();
             this.genderLabel = new System.Windows.Forms.Label();
             this.ageLabel = new System.Windows.Forms.Label();
             this.lastNameLabel = new System.Windows.Forms.Label();
             this.firstNameLabel = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.winsBox = new System.Windows.Forms.TextBox();
+            this.ratingLabel = new System.Windows.Forms.Label();
+            this.winsLabel = new System.Windows.Forms.Label();
             this.backPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,23 +70,15 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // textBox3
+            // searchButton
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(66, 95);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(192, 22);
-            this.textBox3.TabIndex = 16;
-            // 
-            // filterButton
-            // 
-            this.filterButton.Location = new System.Drawing.Point(154, 34);
-            this.filterButton.Name = "filterButton";
-            this.filterButton.Size = new System.Drawing.Size(108, 40);
-            this.filterButton.TabIndex = 17;
-            this.filterButton.Text = "FIlter";
-            this.filterButton.UseVisualStyleBackColor = true;
-            this.filterButton.Click += new System.EventHandler(this.filterButton_Click);
+            this.searchButton.Location = new System.Drawing.Point(154, 34);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(108, 40);
+            this.searchButton.TabIndex = 17;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.filterButton_Click);
             // 
             // addPlayerButton
             // 
@@ -98,15 +90,6 @@
             this.addPlayerButton.UseVisualStyleBackColor = true;
             this.addPlayerButton.Click += new System.EventHandler(this.addPlayerButton_Click);
             // 
-            // seachButton
-            // 
-            this.seachButton.Location = new System.Drawing.Point(255, 95);
-            this.seachButton.Name = "seachButton";
-            this.seachButton.Size = new System.Drawing.Size(95, 22);
-            this.seachButton.TabIndex = 19;
-            this.seachButton.Text = "Search";
-            this.seachButton.UseVisualStyleBackColor = true;
-            // 
             // contextMenuStrip2
             // 
             this.contextMenuStrip2.Name = "contextMenuStrip2";
@@ -115,6 +98,8 @@
             // backPanel
             // 
             this.backPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.backPanel.Controls.Add(this.winsLabel);
+            this.backPanel.Controls.Add(this.winsBox);
             this.backPanel.Controls.Add(this.closeButton);
             this.backPanel.Controls.Add(this.addSaveButton);
             this.backPanel.Controls.Add(this.titleLabel);
@@ -129,7 +114,7 @@
             this.backPanel.Controls.Add(this.ageLabel);
             this.backPanel.Controls.Add(this.lastNameLabel);
             this.backPanel.Controls.Add(this.firstNameLabel);
-            this.backPanel.Location = new System.Drawing.Point(651, 61);
+            this.backPanel.Location = new System.Drawing.Point(412, 34);
             this.backPanel.Name = "backPanel";
             this.backPanel.Size = new System.Drawing.Size(369, 508);
             this.backPanel.TabIndex = 20;
@@ -238,17 +223,6 @@
             this.firstNameTestBox.Size = new System.Drawing.Size(100, 22);
             this.firstNameTestBox.TabIndex = 5;
             // 
-            // ratingLabel
-            // 
-            this.ratingLabel.AutoSize = true;
-            this.ratingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ratingLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ratingLabel.Location = new System.Drawing.Point(24, 313);
-            this.ratingLabel.Name = "ratingLabel";
-            this.ratingLabel.Size = new System.Drawing.Size(63, 24);
-            this.ratingLabel.TabIndex = 4;
-            this.ratingLabel.Text = "Rating";
-            // 
             // genderLabel
             // 
             this.genderLabel.AutoSize = true;
@@ -298,40 +272,56 @@
             this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Items.AddRange(new object[] {
-            "Dog",
-            "Cat ",
-            "Fish ",
-            "Whale",
-            "Mammoth",
-            "Elephant",
-            "Bug",
-            "Trout ",
-            "Chat",
-            "Chein ",
-            "Poission"});
-            this.listBox1.Location = new System.Drawing.Point(66, 116);
+            this.listBox1.Location = new System.Drawing.Point(66, 100);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(284, 420);
+            this.listBox1.Size = new System.Drawing.Size(284, 436);
             this.listBox1.TabIndex = 21;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // winsBox
+            // 
+            this.winsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.winsBox.Location = new System.Drawing.Point(28, 400);
+            this.winsBox.Name = "winsBox";
+            this.winsBox.Size = new System.Drawing.Size(100, 22);
+            this.winsBox.TabIndex = 16;
+            // 
+            // ratingLabel
+            // 
+            this.ratingLabel.AutoSize = true;
+            this.ratingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ratingLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ratingLabel.Location = new System.Drawing.Point(24, 313);
+            this.ratingLabel.Name = "ratingLabel";
+            this.ratingLabel.Size = new System.Drawing.Size(63, 24);
+            this.ratingLabel.TabIndex = 4;
+            this.ratingLabel.Text = "Rating";
+            // 
+            // winsLabel
+            // 
+            this.winsLabel.AutoSize = true;
+            this.winsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.winsLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.winsLabel.Location = new System.Drawing.Point(24, 370);
+            this.winsLabel.Name = "winsLabel";
+            this.winsLabel.Size = new System.Drawing.Size(52, 24);
+            this.winsLabel.TabIndex = 17;
+            this.winsLabel.Text = "Wins";
             // 
             // playerListScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.backPanel);
-            this.Controls.Add(this.seachButton);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.addPlayerButton);
-            this.Controls.Add(this.filterButton);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.searchButton);
             this.Controls.Add(this.backButton);
             this.Name = "playerListScreen";
-            this.Size = new System.Drawing.Size(1075, 600);
+            this.Size = new System.Drawing.Size(820, 600);
             this.backPanel.ResumeLayout(false);
             this.backPanel.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -339,14 +329,11 @@
 
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button filterButton;
+        private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Button addPlayerButton;
-        private System.Windows.Forms.Button seachButton;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.Panel backPanel;
         private System.Windows.Forms.Label firstNameLabel;
-        private System.Windows.Forms.Label ratingLabel;
         private System.Windows.Forms.Label genderLabel;
         private System.Windows.Forms.Label ageLabel;
         private System.Windows.Forms.Label lastNameLabel;
@@ -360,5 +347,8 @@
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Label warningLabel;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label winsLabel;
+        private System.Windows.Forms.TextBox winsBox;
+        private System.Windows.Forms.Label ratingLabel;
     }
 }
