@@ -35,15 +35,14 @@
             this.addPlayerButton = new System.Windows.Forms.Button();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.backPanel = new System.Windows.Forms.Panel();
-            this.winsLabel = new System.Windows.Forms.Label();
-            this.winsBox = new System.Windows.Forms.TextBox();
+            this.ageTextBox = new System.Windows.Forms.TextBox();
             this.closeButton = new System.Windows.Forms.Button();
             this.addSaveButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
             this.warningLabel = new System.Windows.Forms.Label();
             this.ratingBox = new System.Windows.Forms.ComboBox();
             this.genderBox = new System.Windows.Forms.ComboBox();
-            this.ageBox = new System.Windows.Forms.TextBox();
+            this.dobComboBox = new System.Windows.Forms.TextBox();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.firstNameTestBox = new System.Windows.Forms.TextBox();
             this.ratingLabel = new System.Windows.Forms.Label();
@@ -98,15 +97,14 @@
             // backPanel
             // 
             this.backPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.backPanel.Controls.Add(this.winsLabel);
-            this.backPanel.Controls.Add(this.winsBox);
+            this.backPanel.Controls.Add(this.ageTextBox);
             this.backPanel.Controls.Add(this.closeButton);
             this.backPanel.Controls.Add(this.addSaveButton);
             this.backPanel.Controls.Add(this.titleLabel);
             this.backPanel.Controls.Add(this.warningLabel);
             this.backPanel.Controls.Add(this.ratingBox);
             this.backPanel.Controls.Add(this.genderBox);
-            this.backPanel.Controls.Add(this.ageBox);
+            this.backPanel.Controls.Add(this.dobComboBox);
             this.backPanel.Controls.Add(this.lastNameTextBox);
             this.backPanel.Controls.Add(this.firstNameTestBox);
             this.backPanel.Controls.Add(this.ratingLabel);
@@ -114,29 +112,18 @@
             this.backPanel.Controls.Add(this.ageLabel);
             this.backPanel.Controls.Add(this.lastNameLabel);
             this.backPanel.Controls.Add(this.firstNameLabel);
-            this.backPanel.Location = new System.Drawing.Point(414, 34);
+            this.backPanel.Location = new System.Drawing.Point(24, 33);
             this.backPanel.Name = "backPanel";
             this.backPanel.Size = new System.Drawing.Size(369, 508);
             this.backPanel.TabIndex = 20;
             // 
-            // winsLabel
+            // ageTextBox
             // 
-            this.winsLabel.AutoSize = true;
-            this.winsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.winsLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.winsLabel.Location = new System.Drawing.Point(24, 370);
-            this.winsLabel.Name = "winsLabel";
-            this.winsLabel.Size = new System.Drawing.Size(52, 24);
-            this.winsLabel.TabIndex = 17;
-            this.winsLabel.Text = "Wins";
-            // 
-            // winsBox
-            // 
-            this.winsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.winsBox.Location = new System.Drawing.Point(28, 400);
-            this.winsBox.Name = "winsBox";
-            this.winsBox.Size = new System.Drawing.Size(100, 22);
-            this.winsBox.TabIndex = 16;
+            this.ageTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ageTextBox.Location = new System.Drawing.Point(28, 227);
+            this.ageTextBox.Name = "ageTextBox";
+            this.ageTextBox.Size = new System.Drawing.Size(100, 22);
+            this.ageTextBox.TabIndex = 16;
             // 
             // closeButton
             // 
@@ -177,7 +164,7 @@
             this.warningLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.warningLabel.Location = new System.Drawing.Point(164, 66);
             this.warningLabel.Name = "warningLabel";
-            this.warningLabel.Size = new System.Drawing.Size(197, 282);
+            this.warningLabel.Size = new System.Drawing.Size(202, 85);
             this.warningLabel.TabIndex = 12;
             this.warningLabel.Text = "adsad";
             // 
@@ -191,9 +178,9 @@
             "3",
             "4",
             "5"});
-            this.ratingBox.Location = new System.Drawing.Point(28, 340);
+            this.ratingBox.Location = new System.Drawing.Point(28, 339);
             this.ratingBox.Name = "ratingBox";
-            this.ratingBox.Size = new System.Drawing.Size(121, 24);
+            this.ratingBox.Size = new System.Drawing.Size(100, 24);
             this.ratingBox.TabIndex = 11;
             this.ratingBox.Text = "Use Selection";
             this.ratingBox.Enter += new System.EventHandler(this.ratingBox_Enter);
@@ -207,24 +194,25 @@
             "Male ",
             "Female",
             "Other"});
-            this.genderBox.Location = new System.Drawing.Point(28, 281);
+            this.genderBox.Location = new System.Drawing.Point(28, 279);
             this.genderBox.Name = "genderBox";
-            this.genderBox.Size = new System.Drawing.Size(121, 24);
+            this.genderBox.Size = new System.Drawing.Size(100, 24);
             this.genderBox.TabIndex = 10;
             this.genderBox.Text = "Use Selection";
             this.genderBox.Enter += new System.EventHandler(this.genderBox_Enter);
             this.genderBox.Leave += new System.EventHandler(this.genderBox_Leave);
             // 
-            // ageBox
+            // dobComboBox
             // 
-            this.ageBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ageBox.Location = new System.Drawing.Point(28, 219);
-            this.ageBox.Name = "ageBox";
-            this.ageBox.Size = new System.Drawing.Size(106, 22);
-            this.ageBox.TabIndex = 7;
-            this.ageBox.Text = "Year/Month/Day";
-            this.ageBox.Enter += new System.EventHandler(this.ageBox_Enter);
-            this.ageBox.Leave += new System.EventHandler(this.ageBox_Leave);
+            this.dobComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dobComboBox.Location = new System.Drawing.Point(28, 219);
+            this.dobComboBox.Name = "dobComboBox";
+            this.dobComboBox.Size = new System.Drawing.Size(100, 22);
+            this.dobComboBox.TabIndex = 7;
+            this.dobComboBox.Text = "Year/Month/Day";
+            this.dobComboBox.TextChanged += new System.EventHandler(this.dobComboBox_TextChanged);
+            this.dobComboBox.Enter += new System.EventHandler(this.ageBox_Enter);
+            this.dobComboBox.Leave += new System.EventHandler(this.ageBox_Leave);
             // 
             // lastNameTextBox
             // 
@@ -247,7 +235,7 @@
             this.ratingLabel.AutoSize = true;
             this.ratingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ratingLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ratingLabel.Location = new System.Drawing.Point(24, 313);
+            this.ratingLabel.Location = new System.Drawing.Point(24, 312);
             this.ratingLabel.Name = "ratingLabel";
             this.ratingLabel.Size = new System.Drawing.Size(63, 24);
             this.ratingLabel.TabIndex = 4;
@@ -258,7 +246,7 @@
             this.genderLabel.AutoSize = true;
             this.genderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.genderLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.genderLabel.Location = new System.Drawing.Point(24, 253);
+            this.genderLabel.Location = new System.Drawing.Point(24, 251);
             this.genderLabel.Name = "genderLabel";
             this.genderLabel.Size = new System.Drawing.Size(74, 24);
             this.genderLabel.TabIndex = 3;
@@ -318,7 +306,7 @@
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.backButton);
             this.Name = "playerListScreen";
-            this.Size = new System.Drawing.Size(820, 600);
+            this.Size = new System.Drawing.Size(864, 600);
             this.backPanel.ResumeLayout(false);
             this.backPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -337,7 +325,7 @@
         private System.Windows.Forms.Label genderLabel;
         private System.Windows.Forms.Label ageLabel;
         private System.Windows.Forms.Label lastNameLabel;
-        private System.Windows.Forms.TextBox ageBox;
+        private System.Windows.Forms.TextBox dobComboBox;
         private System.Windows.Forms.TextBox lastNameTextBox;
         private System.Windows.Forms.TextBox firstNameTestBox;
         private System.Windows.Forms.ComboBox genderBox;
@@ -347,8 +335,7 @@
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Label warningLabel;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Label winsLabel;
-        private System.Windows.Forms.TextBox winsBox;
         private System.Windows.Forms.Label ratingLabel;
+        private System.Windows.Forms.TextBox ageTextBox;
     }
 }

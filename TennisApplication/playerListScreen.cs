@@ -42,17 +42,18 @@ namespace TennisApplication
                 {
                     try
                     {
+                       
                         bool check = true;
-                        if (ageBox.Text.Length == 10)
+                        if (dobComboBox.Text.Length == 10)
                         {
                             for (int i = 0; i < 9; i++)
                             {
-                                if (char.IsDigit(ageBox.Text, i) != true && i != 4 && i != 7)
+                                if (char.IsDigit(dobComboBox.Text, i) != true && i != 4 && i != 7)
                                 {
                                     check = false;
                                     break;
                                 }
-                                else if (ageBox.Text.Substring(i, 1) != "/" && (i == 4 || i == 7))
+                                else if (dobComboBox.Text.Substring(i, 1) != "/" && (i == 4 || i == 7))
                                 {
                                     check = false;
                                 }
@@ -65,7 +66,7 @@ namespace TennisApplication
 
                         if (check == true)
                         {
-                            Player newPlayer = new Player(firstNameTestBox.Text, lastNameTextBox.Text, genderBox.Text, 0, ageBox.Text, Convert.ToInt32(ratingBox.Text), null);
+                            Player newPlayer = new Player(firstNameTestBox.Text, lastNameTextBox.Text, genderBox.Text, 0, dobComboBox.Text, Convert.ToInt32(ratingBox.Text), null);
                             Form1.playerList.Add(newPlayer);
 
                             warningLabel.Text = $"Added: {newPlayer.firstName} {newPlayer.lastName}\n" +
@@ -94,9 +95,9 @@ namespace TennisApplication
             }
             else if (addSaveButton.Text == "Search")
             {
-                if (ageBox.Text == "Year/Month/Days")
+                if (dobComboBox.Text == "Year/Month/Days")
                 {
-                    ageBox.Text = "";
+                    dobComboBox.Text = "";
                 }
                 if (genderBox.Text == "Use Selection")
                 {
@@ -106,7 +107,7 @@ namespace TennisApplication
                 {
                     ratingBox.Text = "";
                 }
-                updateList($"{firstNameTestBox.Text},{lastNameTextBox.Text},{ageBox.Text},{genderBox.Text},{winsBox.Text},{ratingBox.Text},");
+                updateList($"{firstNameTestBox.Text},{lastNameTextBox.Text},{dobComboBox.Text},{genderBox.Text},{ratingBox.Text},");
             }
 
         }
@@ -191,17 +192,6 @@ namespace TennisApplication
                     }
                     if (i == 4)
                     {
-                        if (data == "" || data == player.wins.ToString())
-                        {
-
-                        }
-                        else if (data != player.wins.ToString())
-                        {
-                            playerIndexes.Remove(Form1.playerList.IndexOf(player));
-                        }
-                    }
-                    if (i == 5)
-                    {
                         if (data == "" || data == player.rating.ToString())
                         {
 
@@ -247,6 +237,9 @@ namespace TennisApplication
                     titleLabel.Text = "Player Addition";
                     addSaveButton.Text = "Add Player";
                     warningLabel.Text = $"Please enter player information into the boxes below";
+                    ageTextBox.Visible = false;
+                    dobComboBox.Visible = true; 
+                    ageLabel.Text = "Date of Birth";
                 }
 
                 if (mode == "search")
@@ -254,6 +247,9 @@ namespace TennisApplication
                     titleLabel.Text = "Search";
                     addSaveButton.Text = "Search";
                     warningLabel.Text = $"Please enter filter information into the boxes below, you may leave fields blank";
+                    dobComboBox.Visible = false;
+                    ageTextBox.Visible = true;
+                    ageLabel.Text = "Age";
                 }
 
             }
@@ -275,21 +271,21 @@ namespace TennisApplication
         #region TextChanging
         private void ageBox_Enter(object sender, EventArgs e)
         {
-            ageBox.Text = "";
+            dobComboBox.Text = "";
         }
         private void ageBox_Leave(object sender, EventArgs e)
         {
                 bool check = true;
-            if (ageBox.Text.Length == 10)
+            if (dobComboBox.Text.Length == 10)
             {
                 for (int i = 0; i < 9; i++)
                 {
-                    if (char.IsDigit(ageBox.Text, i) != true && i != 4 && i != 7)
+                    if (char.IsDigit(dobComboBox.Text, i) != true && i != 4 && i != 7)
                     {
                         check = false;
                         break;
                     }
-                    else if (ageBox.Text.Substring(i, 1) != "/" && (i == 4 || i == 7))
+                    else if (dobComboBox.Text.Substring(i, 1) != "/" && (i == 4 || i == 7))
                     {
                         check = false;
                     }
@@ -301,13 +297,13 @@ namespace TennisApplication
             }
                
 
-            if (ageBox.Text == "")
+            if (dobComboBox.Text == "")
                 {
-                    ageBox.Text = "Year/Month/Days";
+                    dobComboBox.Text = "Year/Month/Days";
                 }
                 else if (check == false)
                 {
-                    ageBox.Text = "Year/Month/Days";
+                    dobComboBox.Text = "Year/Month/Days";
                 }
                 else
                 {
@@ -371,7 +367,30 @@ namespace TennisApplication
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            List<int> spaceIndex = new List<int>(); 
             warningLabel.Text = $"{listBox1.SelectedItem.ToString()}"; 
+            for (int i = 0; i < listBox1.SelectedItem.ToString().Length; i++)
+            {
+                if (listBox1.SelectedItem.ToString().Substring(i,1) == " ")
+                {
+                    spaceIndex.Add(i);    
+                }
+            }
+
+            foreach (Player p in Form1.playerList)
+            {
+                
+            }
+        }
+        private void dobComboBox_TextChanged(object sender, EventArgs e)
+        {
+            if (dobComboBox.Text.Length == 2 || dobComboBox.Text.Length == 5 || dobComboBox.Text.Length == 8)
+            {
+                dobComboBox.Text += "/";
+                dobComboBox.SelectionStart = 3;
+            }
+            
         }
     }
 }
+    
