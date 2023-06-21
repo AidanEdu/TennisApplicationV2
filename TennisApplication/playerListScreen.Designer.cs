@@ -35,6 +35,8 @@
             this.addPlayerButton = new System.Windows.Forms.Button();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.backPanel = new System.Windows.Forms.Panel();
+            this.winsLabel = new System.Windows.Forms.Label();
+            this.winsBox = new System.Windows.Forms.TextBox();
             this.closeButton = new System.Windows.Forms.Button();
             this.addSaveButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
@@ -44,14 +46,12 @@
             this.ageBox = new System.Windows.Forms.TextBox();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.firstNameTestBox = new System.Windows.Forms.TextBox();
+            this.ratingLabel = new System.Windows.Forms.Label();
             this.genderLabel = new System.Windows.Forms.Label();
             this.ageLabel = new System.Windows.Forms.Label();
             this.lastNameLabel = new System.Windows.Forms.Label();
             this.firstNameLabel = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.winsBox = new System.Windows.Forms.TextBox();
-            this.ratingLabel = new System.Windows.Forms.Label();
-            this.winsLabel = new System.Windows.Forms.Label();
             this.backPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -114,10 +114,29 @@
             this.backPanel.Controls.Add(this.ageLabel);
             this.backPanel.Controls.Add(this.lastNameLabel);
             this.backPanel.Controls.Add(this.firstNameLabel);
-            this.backPanel.Location = new System.Drawing.Point(412, 34);
+            this.backPanel.Location = new System.Drawing.Point(414, 34);
             this.backPanel.Name = "backPanel";
             this.backPanel.Size = new System.Drawing.Size(369, 508);
             this.backPanel.TabIndex = 20;
+            // 
+            // winsLabel
+            // 
+            this.winsLabel.AutoSize = true;
+            this.winsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.winsLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.winsLabel.Location = new System.Drawing.Point(24, 370);
+            this.winsLabel.Name = "winsLabel";
+            this.winsLabel.Size = new System.Drawing.Size(52, 24);
+            this.winsLabel.TabIndex = 17;
+            this.winsLabel.Text = "Wins";
+            // 
+            // winsBox
+            // 
+            this.winsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.winsBox.Location = new System.Drawing.Point(28, 400);
+            this.winsBox.Name = "winsBox";
+            this.winsBox.Size = new System.Drawing.Size(100, 22);
+            this.winsBox.TabIndex = 16;
             // 
             // closeButton
             // 
@@ -223,6 +242,17 @@
             this.firstNameTestBox.Size = new System.Drawing.Size(100, 22);
             this.firstNameTestBox.TabIndex = 5;
             // 
+            // ratingLabel
+            // 
+            this.ratingLabel.AutoSize = true;
+            this.ratingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ratingLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ratingLabel.Location = new System.Drawing.Point(24, 313);
+            this.ratingLabel.Name = "ratingLabel";
+            this.ratingLabel.Size = new System.Drawing.Size(63, 24);
+            this.ratingLabel.TabIndex = 4;
+            this.ratingLabel.Text = "Rating";
+            // 
             // genderLabel
             // 
             this.genderLabel.AutoSize = true;
@@ -277,36 +307,6 @@
             this.listBox1.Size = new System.Drawing.Size(284, 436);
             this.listBox1.TabIndex = 21;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-            // 
-            // winsBox
-            // 
-            this.winsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.winsBox.Location = new System.Drawing.Point(28, 400);
-            this.winsBox.Name = "winsBox";
-            this.winsBox.Size = new System.Drawing.Size(100, 22);
-            this.winsBox.TabIndex = 16;
-            // 
-            // ratingLabel
-            // 
-            this.ratingLabel.AutoSize = true;
-            this.ratingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ratingLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ratingLabel.Location = new System.Drawing.Point(24, 313);
-            this.ratingLabel.Name = "ratingLabel";
-            this.ratingLabel.Size = new System.Drawing.Size(63, 24);
-            this.ratingLabel.TabIndex = 4;
-            this.ratingLabel.Text = "Rating";
-            // 
-            // winsLabel
-            // 
-            this.winsLabel.AutoSize = true;
-            this.winsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.winsLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.winsLabel.Location = new System.Drawing.Point(24, 370);
-            this.winsLabel.Name = "winsLabel";
-            this.winsLabel.Size = new System.Drawing.Size(52, 24);
-            this.winsLabel.TabIndex = 17;
-            this.winsLabel.Text = "Wins";
             // 
             // playerListScreen
             // 

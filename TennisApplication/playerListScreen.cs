@@ -27,32 +27,74 @@ namespace TennisApplication
 
         private void addSaveButton_Click(object sender, EventArgs e)
         {
+            bool checkTwo = false; 
             if (addSaveButton.Text == "Add Player")
             {
-                try
+                foreach (Player p in Form1.playerList)
                 {
-                    Player newPlayer = new Player(firstNameTestBox.Text, lastNameTextBox.Text, genderBox.Text, 0, ageBox.Text, Convert.ToInt32(ratingBox.Text), null);
-                    Form1.playerList.Add(newPlayer);
-
-                    warningLabel.Text = $"Added: {newPlayer.firstName} {newPlayer.lastName}\n" +
-                        $"DOB: {newPlayer.age}\n" +
-                        $"Gender: {newPlayer.gender}\n" +
-                        $"Rating: {newPlayer.rating}";
-
-
-
-
-                }
-                catch
-                {
-                    warningLabel.Text = "please enter the correct information";
+                    if (firstNameTestBox.Text == p.firstName && lastNameTextBox.Text == p.lastName)
+                    {
+                        checkTwo = true; 
+                    }
                 }
 
-                updateList(",,,,,,");
+                if (checkTwo == false)
+                {
+                    try
+                    {
+                        bool check = true;
+                        if (ageBox.Text.Length == 10)
+                        {
+                            for (int i = 0; i < 9; i++)
+                            {
+                                if (char.IsDigit(ageBox.Text, i) != true && i != 4 && i != 7)
+                                {
+                                    check = false;
+                                    break;
+                                }
+                                else if (ageBox.Text.Substring(i, 1) != "/" && (i == 4 || i == 7))
+                                {
+                                    check = false;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            check = false;
+                        }
+
+                        if (check == true)
+                        {
+                            Player newPlayer = new Player(firstNameTestBox.Text, lastNameTextBox.Text, genderBox.Text, 0, ageBox.Text, Convert.ToInt32(ratingBox.Text), null);
+                            Form1.playerList.Add(newPlayer);
+
+                            warningLabel.Text = $"Added: {newPlayer.firstName} {newPlayer.lastName}\n" +
+                                $"DOB: {newPlayer.age}\n" +
+                                $"Gender: {newPlayer.gender}\n" +
+                                $"Rating: {newPlayer.rating}";
+                        }
+                        else
+                        {
+                            warningLabel.Text = "please enter the correct information";
+                        }
+                    }
+                    catch
+                    {
+                        warningLabel.Text = "please enter the correct information";
+                    }
+
+
+                    updateList(",,,,,,");
+
+                }
+                else
+                {
+                    warningLabel.Text = "A player with this name already exists!";
+                }
             }
             else if (addSaveButton.Text == "Search")
             {
-                if (ageBox.Text == "Year/Month/Day")
+                if (ageBox.Text == "Year/Month/Days")
                 {
                     ageBox.Text = "";
                 }
